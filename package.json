@@ -1,6 +1,6 @@
 {
   "name": "phnq-client",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Client for Phnq server.",
   "repository": {
     "type": "git",
