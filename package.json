@@ -1,0 +1,63 @@
+{
+  "name": "phnq-client",
+  "version": "1.0.0",
+  "description": "Client for Phnq server.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgostovic/phnq-client.git"
+  },
+  "main": "index.server.js",
+  "browser": "index.client.js",
+  "scripts": {
+    "dist": "webpack --config etc/webpack.js",
+    "postdist": "node scripts/postdist",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "release:patch": "npm version patch; npm run dist; cd dist; npm publish",
+    "release:minor": "npm version minor; npm run dist; cd dist; npm publish"
+  },
+  "author": "Patrick Gostovic",
+  "license": "ISC",
+  "dependencies": {
+    "browser-process-hrtime": "^1.0.0",
+    "isomorphic-ws": "^4.0.1",
+    "phnq-lib": "^1.5.5",
+    "pretty-hrtime": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "verbose": true,
+    "notify": true,
+    "collectCoverage": true,
+    "coverageDirectory": "../.coverage",
+    "notifyMode": "change",
+    "rootDir": "./lib",
+    "testURL": "https://phnq.org:1234/"
+  }
+}
