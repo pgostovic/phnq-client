@@ -8,7 +8,7 @@ const config = {
   mode: 'production',
   devtool: 'source-map',
 
-  externals: [nodeExternals()],
+  // externals: [nodeExternals()],
 
   output: {
     path: path.resolve(__dirname, '../dist'),
