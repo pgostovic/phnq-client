@@ -31,5 +31,3 @@ export const toModel = val => {
   }
   return val;
 };
-
-export default models;
