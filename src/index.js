@@ -5,12 +5,19 @@ import { toModel } from './model';
 
 const log = newLogger('phnq.api');
 
-const serviceTypes = [];
+let apiWSUrl;
 
-const apiScriptUrl = [...window.document.scripts].map(({ src }) => src).find(src => src.match(/\/phnqapi\.js$/));
-const apiWSUrl = apiScriptUrl.replace(/^http/, 'ws').replace(/\.js$/, '');
+const serviceTypes = ['getArtist'];
 
 const onErrors = [];
+
+export const configure = config => {
+  const { host, secure = false } = config;
+
+  if (host) {
+    apiWSUrl = `ws${secure ? 's' : ''}://${host}/phnqapi`;
+  }
+};
 
 export const onApiError = onError => {
   onErrors.push(onError);
